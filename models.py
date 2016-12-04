@@ -17,10 +17,10 @@ class bern_emb_model():
         self.placeholders = self.words
 
         # Index Masks
-        self.p_mask = tf.range(d.cs/2,d.n_minibatch + d.cs/2)
-        rows = tf.tile(tf.expand_dims(tf.range(0, d.cs/2),[0]), [d.n_minibatch, 1])
-        columns = tf.tile(tf.expand_dims(tf.range(0, d.n_minibatch), [1]), [1, d.cs/2])
-        self.ctx_mask = tf.concat(1,[rows+columns, rows+columns +d.cs/2+1])
+        self.p_mask = tf.range(d.cs//2,d.n_minibatch + d.cs//2)
+        rows = tf.tile(tf.expand_dims(tf.range(0, d.cs//2),[0]), [d.n_minibatch, 1])
+        columns = tf.tile(tf.expand_dims(tf.range(0, d.n_minibatch), [1]), [1, d.cs//2])
+        self.ctx_mask = tf.concat(1,[rows+columns, rows+columns +d.cs//2+1])
 
         # Embedding vectors
         self.rho = tf.Variable(tf.random_normal([d.L, self.K])/self.K)

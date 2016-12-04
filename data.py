@@ -56,4 +56,4 @@ class bern_emb_data():
             yield words
     
     def feed(self, placeholder):
-        return {placeholder: self.batch.next()}
+        return {placeholder: next(self.batch)}
