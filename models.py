@@ -62,7 +62,7 @@ class bern_emb_model():
     def plot_params(self, dir_name, labels):
         plot_only = len(labels)
 
-	tsne = TSNE(perplexity=30, n_components=2, init='pca', n_iter=5000)
+        tsne = TSNE(perplexity=30, n_components=2, init='pca', n_iter=5000)
         low_dim_embs_alpha2 = tsne.fit_transform(self.alpha.eval()[:plot_only])
         plot_with_labels(low_dim_embs_alpha2[:plot_only], labels[:plot_only], dir_name + '/alpha.eps')
 
